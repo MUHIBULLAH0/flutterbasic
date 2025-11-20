@@ -39,13 +39,10 @@ class home extends StatelessWidget {
           Container(
 
             height:162 ,
-            width: 336,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.only(topLeft: Radius.circular(146),topRight: Radius.circular(6),bottomLeft: Radius.circular(6),bottomRight: Radius.circular(6)),
-            ),
+            width: 380,
             child: Stack(
               children: [
-                Image.asset("assets/icon_assets/homered.png",fit:BoxFit.cover),
+                Image.asset("assets/icon_assets/homered.png",width:380,fit:BoxFit.cover),
                 Container(
                   margin: EdgeInsets.only(bottom: 10),
                     child: Image.asset("assets/icon_assets/fittness.png",)),

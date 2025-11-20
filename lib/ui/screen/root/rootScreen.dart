@@ -35,21 +35,47 @@ class _RootScreenState extends State<RootScreen> {
          mainAxisAlignment: MainAxisAlignment.spaceAround,
          crossAxisAlignment: CrossAxisAlignment.center,
          children: [
+
            InkWell(
-               onTap: (){
-                 onclick(0);
-               },
-               child: Text("Home")),
+             onTap: (){
+               onclick(0);
+             },
+             child: Column(
+               mainAxisAlignment: MainAxisAlignment.center,
+               crossAxisAlignment: CrossAxisAlignment.center,
+               children: [
+
+                 Icon(Icons.home,color: selectindex==0?Colors.blue:Colors.white),
+                 Text("Home",style: TextStyle(color:selectindex==0?Colors.blue:Colors.white ),),
+               ],
+             ),
+           ),
            InkWell(
-               onTap: (){
-                 onclick(1);
-               },
-               child: Text("worlout")),
+             onTap: (){
+               onclick(1);
+             },
+             child: Column(
+               mainAxisAlignment: MainAxisAlignment.center,
+               crossAxisAlignment: CrossAxisAlignment.center,
+               children: [
+                 Icon(Icons.sports_gymnastics,color: selectindex==1?Colors.blue:Colors.white),
+                 Text("workout",style: TextStyle(color:selectindex==1?Colors.blue:Colors.white ),),
+               ],
+             ),
+           ),
            InkWell(
-               onTap: (){
-                 onclick(2);
-               },
-               child: Text("Profile")),
+             onTap: (){
+               onclick(2);
+             },
+             child: Column(
+               mainAxisAlignment: MainAxisAlignment.center,
+               crossAxisAlignment: CrossAxisAlignment.center,
+               children: [
+                      Icon(Icons.person_pin_circle_outlined,color: selectindex==2?Colors.blue:Colors.white),
+                 Text("profile",style: TextStyle(color:selectindex==2?Colors.blue:Colors.white ),)
+               ],
+             ),
+           ),
 
          ],
 
