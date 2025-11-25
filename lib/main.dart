@@ -1,14 +1,13 @@
 import 'package:fitness_app/main.dart';
 import 'package:fitness_app/ui/splash_screen.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 
 void main(){
-  runApp(homescreen());
+  runApp(HomeScreen());
 }
-class homescreen extends StatelessWidget {
-  const homescreen({super.key});
+class HomeScreen extends StatelessWidget {
+  const HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

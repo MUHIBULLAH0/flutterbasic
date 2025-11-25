@@ -34,23 +34,67 @@ class home extends StatelessWidget {
           ],
         ),
       ),
-      body: Column(
-        children: [
-          Container(
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 8,vertical: 16),
+        child: Container(
+          margin: EdgeInsets.only(left: 30),
+          child: Column(
+            children: [
+              Container(
+                height:162 ,
+                width: 380,
+                child: Row(
+                  children: [
+                    Stack(
+                      children: [
+                        Image.asset("assets/icon_assets/homered.png",width:336,fit:BoxFit.cover),
+                        Row(
+                          children: [
+                            Container(
+                              margin: EdgeInsets.only(bottom: 10),
+                                child: Image.asset("assets/icon_assets/fittness.png",)),
+                         Container(
+                           margin: EdgeInsets.only(top: 10),
+                           child: Column(
+                             mainAxisAlignment: MainAxisAlignment.start,
+                             crossAxisAlignment: CrossAxisAlignment.start,
+                             children: [
+                               RichText(text: TextSpan(style: TextStyle(fontSize: 20,fontWeight: FontWeight.w600,color: Colors.white),children: [
+                                   TextSpan(text: "     March"),
+                                   TextSpan(text: " and \n",style: TextStyle(fontWeight: FontWeight.w400)),
+                                   TextSpan(text: "     clap"),
+                                   TextSpan(text: " workout",style: TextStyle(fontWeight: FontWeight.w400)),
+                                 ]
+                                 )
+                                 ),
+                               SizedBox(height: 2,),
+                               Row(
+                                 children: [
+                                   SizedBox(width: 25,),
+                                   Container(
+                                     height: 10,
+                                     width: 10,
+                                     child: Image.asset("assets/icon_assets/graph.png"),
+                                   ),
+                                   Text("30 Days Challenge")
+                                 ],
+                               )
+                             ],
+                           ),
+                         )
 
-            height:162 ,
-            width: 380,
-            child: Stack(
-              children: [
-                Image.asset("assets/icon_assets/homered.png",width:380,fit:BoxFit.cover),
-                Container(
-                  margin: EdgeInsets.only(bottom: 10),
-                    child: Image.asset("assets/icon_assets/fittness.png",)),
-              ],
-            ),
-          )
+                          ],
+                        ),
 
-        ],
+                      ],
+                    ),
+                  ],
+                ),
+              )
+
+            ],
+          ),
+        ),
       ),
 
     );
