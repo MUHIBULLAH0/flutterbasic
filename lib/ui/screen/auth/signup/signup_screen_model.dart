@@ -9,7 +9,7 @@ class SignupScreenModel extends ChangeNotifier{
 
   final signup= GlobalKey<FormState>();
 
-  String? usernamevalidator (String? value){
+usernamevalidator (String? value){
   if(value!.isEmpty || value==null)
   {
   return "please enter your username,";
