@@ -104,7 +104,9 @@ class _signup_screenState extends State<signup_screen> {
                                         ),
                                         child: TextFormField(
 
-                                          validator: model.usernamevalidator,
+                                          validator:(val){
+                                            modle.usernamevalidator(val);
+                                          }
 
                                           // validator: (value){
                                           //   if(value!.isEmpty || value==null)
