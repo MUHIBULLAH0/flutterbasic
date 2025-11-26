@@ -1,15 +1,16 @@
 
 
 
+import 'package:fitness_app/core/enum/view_state.dart';
 import 'package:flutter/cupertino.dart';
 
-class SignupScreenModel extends ChangeNotifier{
+class SignupScreenModel extends BaseViewModel{
 
   final login=GlobalKey<FormState>();
 
   final signup= GlobalKey<FormState>();
 
-usernamevalidator (String? value){
+    userNameValidator (String? value){
   if(value!.isEmpty || value==null)
   {
   return "please enter your username,";
@@ -55,6 +56,4 @@ usernamevalidator (String? value){
       return false;
     }
   }
-
-
 }

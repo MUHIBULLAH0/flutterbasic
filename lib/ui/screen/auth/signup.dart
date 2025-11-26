@@ -1,6 +1,7 @@
 import 'package:fitness_app/core/constant/auth_decor.dart';
 import 'package:fitness_app/core/constant/colors.dart';
 import 'package:fitness_app/core/constant/string.dart';
+import 'package:fitness_app/core/view_model/base_view_model.dart';
 import 'package:fitness_app/ui/screen/auth/signup/signup_screen_model.dart';
 import 'package:fitness_app/ui/screen/root/rootScreen.dart';
 import 'package:flutter/material.dart';
@@ -105,8 +106,8 @@ class _signup_screenState extends State<signup_screen> {
                                         child: TextFormField(
 
                                           validator:(val){
-                                            modle.usernamevalidator(val);
-                                          }
+                                            model.userNameValidator(val);
+                                          },
 
                                           // validator: (value){
                                           //   if(value!.isEmpty || value==null)
@@ -162,13 +163,22 @@ class _signup_screenState extends State<signup_screen> {
                                       decoration: BoxDecoration(
                                         color: Colors.pink,
                                       ),
-                                      child: TextButton(onPressed: (){
+                                      child: TextButton(onPressed: ()async {
+
                                         // if(_login.currentState!.validate())
                                         if(model.Login())
                                         {
+
+                                          model.setState(ViewState.busy);
+                                         await Future.delayed(Duration(seconds: 4));
                                           Navigator.push(context,MaterialPageRoute(builder:(context) => RootScreen(), ));
+
+                                          model.setState(ViewState.idle);
                                         }
-                                      }, child: Text("login", style: TextStyle(color: Colors.white ,fontSize: 16 , fontWeight: FontWeight.w600),)),
+                                      }, child:
+
+                                      model.state == ViewState.busy ? CircularProgressIndicator() :
+                                      Text("login", style: TextStyle(color: Colors.white ,fontSize: 16 , fontWeight: FontWeight.w600),)),
                                     ),
 
 
@@ -206,7 +216,9 @@ class _signup_screenState extends State<signup_screen> {
                                           //     return null;
                                           // },
 
-                                          validator: model.usernamevalidator,
+                                          validator: (val){
+                                            model.userNameValidator(val);
+                                          },
 
                                           decoration: authDecoration,
                                         ),
