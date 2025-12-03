@@ -1,3 +1,4 @@
+import 'package:fitness_app/core/constant/colors.dart';
 import 'package:fitness_app/ui/screen/home/home.dart';
 import 'package:fitness_app/ui/screen/profile/profile.dart';
 import 'package:fitness_app/ui/screen/workout/workout.dart';
@@ -28,12 +29,8 @@ class _RootScreenState extends State<RootScreen> {
        bottomNavigationBar: Container(
          height: 80,
          decoration: BoxDecoration(
-           gradient: LinearGradient(
-            begin: Alignment.center,
-               end: Alignment.center,
-               colors: [
-                 Colors.pink,Colors.pinkAccent
-           ])
+           gradient: pink,
+
          ),
          child: Row(
            mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -49,8 +46,8 @@ class _RootScreenState extends State<RootScreen> {
                  crossAxisAlignment: CrossAxisAlignment.center,
                  children: [
 
-                   Icon(Icons.home,color: value.selectindex  ==0?Colors.blue:Colors.white),
-                   Text("Home",style: TextStyle(color:value.selectindex==0?Colors.blue:Colors.white ),),
+                   Icon(Icons.home,color: value.selectindex  ==0?Colors.white:Colors.grey.shade400),
+                   Text("Home",style: TextStyle(color:value.selectindex==0?Colors.white:Colors.grey.shade400 ),),
                  ],
                ),
              ),
@@ -62,8 +59,8 @@ class _RootScreenState extends State<RootScreen> {
                  mainAxisAlignment: MainAxisAlignment.center,
                  crossAxisAlignment: CrossAxisAlignment.center,
                  children: [
-                   Icon(Icons.sports_gymnastics,color: value.selectindex==1?Colors.blue:Colors.white),
-                   Text("workout",style: TextStyle(color:value.selectindex==1?Colors.blue:Colors.white ),),
+                   Icon(Icons.directions_run_outlined,color: value.selectindex==1?Colors.white:Colors.grey.shade400),
+                   Text("workout",style: TextStyle(color:value.selectindex==1?Colors.white:Colors.grey.shade400 ),),
                  ],
                ),
              ),
@@ -75,8 +72,8 @@ class _RootScreenState extends State<RootScreen> {
                  mainAxisAlignment: MainAxisAlignment.center,
                  crossAxisAlignment: CrossAxisAlignment.center,
                  children: [
-                        Icon(Icons.person_pin_circle_outlined,color: value.selectindex==2?Colors.blue:Colors.white),
-                   Text("profile",style: TextStyle(color:value.selectindex==2?Colors.blue:Colors.white ),)
+                        Icon(Icons.account_circle_sharp,color: value.selectindex==2?Colors.white:Colors.grey.shade400),
+                   Text("profile",style: TextStyle(color:value.selectindex==2?Colors.white:Colors.grey.shade400 ),)
                  ],
                ),
              ),

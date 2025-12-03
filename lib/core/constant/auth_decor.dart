@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 const authDecoration = InputDecoration(
 
   focusedBorder: OutlineInputBorder(
-    borderSide: BorderSide(width: 3,color: Colors.blue)
+    borderSide: BorderSide(width: 1,color: Colors.blue)
 
   ),
   enabledBorder: OutlineInputBorder(
@@ -16,6 +16,9 @@ const authDecoration = InputDecoration(
 ),
     fillColor: Color(0xFFEFF3FF),
   filled: true,
-  hintText: "User Name"
+  hintText: "User Name",
+  errorBorder: OutlineInputBorder(
+    borderSide: BorderSide(color: Colors.red,width: 1)
+  )
 
 );

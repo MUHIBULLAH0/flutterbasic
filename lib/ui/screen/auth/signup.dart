@@ -54,11 +54,11 @@ class _signup_screenState extends State<signup_screen> {
                         height: 50,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(25),
-                          color: Colors.pink
+                          gradient: pink,
                         ),
                         child: Image.asset("assets/icon_assets/fitnesslogo.png", scale: 4,),
                       ),
-                      SizedBox(height: 2,),
+                      SizedBox(height: 10,),
                       Container(margin: EdgeInsets.only(left: 80 , right: 80),
                         child: TabBar(
                             labelColor: Colors.pink,
@@ -87,22 +87,13 @@ class _signup_screenState extends State<signup_screen> {
                               Form(
                                 key: model.login,
 
-                                child: Column(
-                                  children: [
-                                    Padding(
-                                      padding: const EdgeInsets.all(8.0),
-                                      child: Container(
-                                        width: 297,
-                                        height: 42,
+                                child: SingleChildScrollView(
+                                  scrollDirection: Axis.vertical,
+                                  child: Column(
 
-                                        decoration: BoxDecoration(
-                                          boxShadow: [BoxShadow(
-                                            color: Colors.white,
-                                            spreadRadius:0,
-                                            offset: Offset(-2, 4),
-                                          )],
-
-                                        ),
+                                    children: [
+                                      Padding(
+                                        padding: const EdgeInsets.all(8.0),
                                         child: TextFormField(
 
                                           validator:(val){
@@ -120,24 +111,10 @@ class _signup_screenState extends State<signup_screen> {
                                           decoration: authDecoration,
                                         ),
                                       ),
-                                    ),
-                                    SizedBox(height: 16,),
+                                      SizedBox(height: 10),
 
-                                    Padding(
-                                      padding: const EdgeInsets.all(10),
-                                      child: Container(
-                                        width: 297,
-                                        height: 42,
-
-                                        decoration: BoxDecoration(
-                                          boxShadow: [BoxShadow(
-                                            color: Colors.white,
-
-                                            spreadRadius:0,
-                                            offset: Offset(-2, 4),
-                                          )],
-
-                                        ),
+                                      Padding(
+                                        padding: const EdgeInsets.all(10),
                                         child: TextFormField(
 
                                           validator: model.passwordvalidator,
@@ -151,62 +128,51 @@ class _signup_screenState extends State<signup_screen> {
                                           decoration: authDecoration. copyWith(hintText: "Password"),
                                         ),
                                       ),
-                                    ),
-                                    Container(
-                                        alignment: Alignment.topRight,
-                                        child: TextButton(onPressed: (){}, child: Text("forgot Password?" , style: TextStyle(color: Colors.pink, ),))),
+                                      Container(
+                                          alignment: Alignment.topRight,
+                                          child: TextButton(onPressed: (){}, child: Text("forgot Password?" , style: TextStyle(color: Colors.pink, ),))),
 
 
-                                    Container(
-                                      width: 297,
-                                      height: 42,
-                                      decoration: BoxDecoration(
-                                        color: Colors.pink,
+                                      Container(
+                                        width: 297,
+                                        height: 42,
+                                        decoration: BoxDecoration(
+                                          gradient: pink,
+                                        ),
+                                        child: TextButton(onPressed: ()async {
+
+                                          // if(_login.currentState!.validate())
+                                          if(model.Login())
+                                          {
+
+                                            model.setState(ViewState.busy);
+                                           await Future.delayed(Duration(seconds: 4));
+                                            Navigator.pushReplacement(context,MaterialPageRoute(builder:(context) => RootScreen(), ));
+
+                                            model.setState(ViewState.idle);
+                                          }
+                                        }, child:
+
+                                        model.state == ViewState.busy ? CircularProgressIndicator() :
+                                        Text("login", style: TextStyle(color: Colors.white ,fontSize: 16 , fontWeight: FontWeight.w600),)),
                                       ),
-                                      child: TextButton(onPressed: ()async {
-
-                                        // if(_login.currentState!.validate())
-                                        if(model.Login())
-                                        {
-
-                                          model.setState(ViewState.busy);
-                                         await Future.delayed(Duration(seconds: 4));
-                                          Navigator.push(context,MaterialPageRoute(builder:(context) => RootScreen(), ));
-
-                                          model.setState(ViewState.idle);
-                                        }
-                                      }, child:
-
-                                      model.state == ViewState.busy ? CircularProgressIndicator() :
-                                      Text("login", style: TextStyle(color: Colors.white ,fontSize: 16 , fontWeight: FontWeight.w600),)),
-                                    ),
 
 
 
 
-                                  ],
+                                    ],
 
+                                  ),
                                 ),
                               ),
                               Form(
                                 key: model.signup,
-                                child: Column(
-                                  children: [
-                                    Padding(
-                                      padding: const EdgeInsets.all(8.0),
-                                      child: Container(
-                                        width: 297,
-                                        height: 42,
-
-                                        decoration: BoxDecoration(
-                                          boxShadow: [BoxShadow(
-                                            color: Colors.white,
-                                            blurRadius: 8,
-                                            spreadRadius:0,
-                                            offset: Offset(-2, 4),
-                                          )],
-
-                                        ),
+                                child: SingleChildScrollView(
+                                  scrollDirection: Axis.vertical,
+                                  child: Column(
+                                    children: [
+                                      Padding(
+                                        padding: const EdgeInsets.all(8.0),
                                         child: TextFormField(
                                           // validator: (value){
                                           //   if(value!.isEmpty || value==null){
@@ -223,45 +189,17 @@ class _signup_screenState extends State<signup_screen> {
                                           decoration: authDecoration,
                                         ),
                                       ),
-                                    ),
 
-                                    Padding(
-                                      padding: const EdgeInsets.all(10),
-                                      child: Container(
-                                        width: 297,
-                                        height: 42,
-
-                                        decoration: BoxDecoration(
-                                          boxShadow: [BoxShadow(
-                                            color: Colors.white,
-                                            blurRadius: 8,
-                                            spreadRadius:0,
-                                            offset: Offset(-2, 4),
-                                          )],
-
-                                        ),
+                                      Padding(
+                                        padding: const EdgeInsets.all(10),
                                         child: TextFormField(
                                           validator: model.emailvalidator,
 
                                           decoration: authDecoration. copyWith(hintText: "Email"),
                                         ),
                                       ),
-                                    ),
-                                    Padding(
-                                      padding: const EdgeInsets.all(10),
-                                      child: Container(
-                                        width: 297,
-                                        height: 42,
-
-                                        decoration: BoxDecoration(
-                                          boxShadow: [BoxShadow(
-                                            color: Colors.white,
-                                            blurRadius: 8,
-                                            spreadRadius:0,
-                                            offset: Offset(-2, 4),
-                                          )],
-
-                                        ),
+                                      Padding(
+                                        padding: const EdgeInsets.all(10),
                                         child: TextFormField(
                                           // validator: (value){
                                           //   if(value!.length<=8){
@@ -275,28 +213,34 @@ class _signup_screenState extends State<signup_screen> {
                                           decoration: authDecoration. copyWith(hintText: "Password"),
                                         ),
                                       ),
-                                    ),
-                                    SizedBox(height: 8,),
+                                      SizedBox(height: 8,),
 
-                                    Container(
-                                      width: 297,
-                                      height: 42,
-                                      decoration: BoxDecoration(
-                                        color: Colors.pink,
+                                      Container(
+                                        width: 297,
+                                        height: 42,
+                                        decoration: BoxDecoration(
+                                          gradient:  pink,
+                                        ),
+                                        child: TextButton(onPressed: ()async{
+                                          if(model.Signup()){
+                                            model.setState(ViewState.busy);
+                                            await Future.delayed(Duration(seconds: 4));
+                                            Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => signup_screen(),));
+                                            model.setState(ViewState.idle);
+                                          }
+
+                                        },
+                                            child:model.state==ViewState.busy?CircularProgressIndicator():
+
+                                            Text("signup", style: TextStyle(color: Colors.white ,fontSize: 16 , fontWeight: FontWeight.w600),)),
                                       ),
-                                      child: TextButton(onPressed: (){
-                                        if(model.Signup()){
-                                          Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => signup_screen(),));
-                                        }
-
-                                      }, child: Text("signup", style: TextStyle(color: Colors.white ,fontSize: 16 , fontWeight: FontWeight.w600),)),
-                                    ),
 
 
 
 
-                                  ],
+                                    ],
 
+                                  ),
                                 ),
                               ),
 
